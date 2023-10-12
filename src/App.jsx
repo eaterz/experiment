@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./App.css";
 export default function App() {
   const user = [
     {
@@ -40,11 +40,23 @@ export default function App() {
     },
   ];
   const userUzd = user.map((answer) => {
-    return <input type="radio" name="myRadio" value={answer.id} /> <label for={answer.id}></label>;
+    return (
+      <label>
+        <div className="userId">
+          <img src="kaka.svg" />
+          {answer.id}
+        </div>
+
+        <input type="checkbox" checked={answer.completed} name={answer.id} />
+
+        {answer.title}
+      </label>
+    );
   });
+
   return (
     <>
-      <label>{userUzd}</label>
+      <div className="check">{userUzd}</div>
     </>
   );
 }
